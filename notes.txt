@@ -3,6 +3,9 @@ game loop:
     choose what to keep
     roll remaining dice or score and pass turn
 
+Maybe take more of a state based approach rather than continous loop
+Need to be able to pass the 'Gamestate' to AI and let it do its turns 
+
 
 
 Need some sort of game state to for further data processing in the future
@@ -11,4 +14,17 @@ Things to record:
 -Current score
 
 Can then do some statistical analysis using the above two variables to maybe create a worthy AI to play against
+
+rules:
+The goal of this two player game is to be the first to reach a certain number of points
+Six dice are thrown and the players alternate turns. Points are gained for every one or five thrown, and for three or more of a kind of any other numbers.
+Before starting the game, both players must set the target number of points to be achieved.
+
+Score:
+1 is worth 100 points
+5 is worth 50 points
+three of a kind is worth 100 points * the given number
+three 1's is = 1000
+four or more of a kind is worth double the points of three of a kind
+
 

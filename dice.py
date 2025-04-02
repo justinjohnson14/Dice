@@ -3,19 +3,27 @@ import tkinter as tk
 from tkinter import ttk
 
 class GameState:
-    def __init__(self):
+    def __init__(self, cup=6, roll=None, kd=None, score=0):
+        self.cup = cup
+        self.roll = roll
+        self.keptDice = kd
+        self.score = score
+
+    def rollDice(self):
+        self.roll = [random.randint(1,6) for x in range(0,self.cup)]
+
+    def bust(self):
+        pass
+
+    def calcScore(self):
+        #This should be called anytime a dice from a roll is selected to show what the score would be
         pass
 
 
-def rollDice(num):
-    return [random.randint(1,6) for x in range(0,num)]
-
-
 class App(tk.Frame):
-    def __init__(self, master):
+    def __init__(self, master, gs):
         super().__init__(master)
         self.pack()
-
 
         self.btn_roll = tk.Button(text='Roll',command=self.roll)
         self.btn_stop = tk.Button(text='Score and stop',command=self.stop)
@@ -41,7 +49,8 @@ class App(tk.Frame):
 if __name__ == '__main__':
     root = tk.Tk()
     root.geometry('600x400')
-    myapp = App(root)
+    gameState = GameState()
+    myapp = App(root, gs)
     myapp.mainloop()
 
     random.seed()
