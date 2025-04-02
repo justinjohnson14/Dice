@@ -1,0 +1,14 @@
+game loop:
+    roll dice
+    choose what to keep
+    roll remaining dice or score and pass turn
+
+
+
+Need some sort of game state to for further data processing in the future
+Things to record:
+-Number of dice left to roll
+-Current score
+
+Can then do some statistical analysis using the above two variables to maybe create a worthy AI to play against
+

@@ -11,10 +11,6 @@ def rollDice(num):
     return [random.randint(1,6) for x in range(0,num)]
 
 
-
-
-
-
 class App(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
@@ -49,9 +45,8 @@ if __name__ == '__main__':
     myapp.mainloop()
 
     random.seed()
-    while True:
+    #while True:
         #z will be a list of dice roll results
         #z = rollDice(6)
         #print(z)
         #choice = input('Choose dice to keep.')
-        pass
