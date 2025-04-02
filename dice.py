@@ -2,6 +2,8 @@ import random
 import tkinter as tk
 from tkinter import ttk
 
+
+
 class GameState:
     def __init__(self, cup=6, roll=None, kd=None, score=0):
         self.cup = cup
@@ -15,9 +17,49 @@ class GameState:
     def bust(self):
         pass
 
-    def calcScore(self):
+    def calcScore(self, dice):
         #This should be called anytime a dice from a roll is selected to show what the score would be
-        pass
+        tmpScore = 0
+        counter = {
+            '1': 0,
+            '2': 0,
+            '3': 0,
+            '4': 0,
+            '5': 0,
+            '6': 0
+        }
+
+        counter2 = {
+            '1': 0,
+            '2': 0,
+            '3': 0,
+            '4': 0,
+            '5': 0,
+            '6': 0
+        }
+        for x in counter:
+            self.counter[str(x)] += 1
+
+        for key,value in counter.items():
+            if value >= 3:
+                if key == '1':
+                    tmpScore += 1000
+                else:
+                    tmpScore += (int(key)*100)
+
+                if value > 3:
+                    tmpScore = tmpScore * 2
+            else:
+                counter2[key] = int(value)
+        
+        tmpScore += counter2['1']*100
+        tmpScore += counter2['5']*50
+
+        return tmpScore
+
+    def scoreAndPass(self, score):
+        self.score += score
+        return
 
 
 class App(tk.Frame):
